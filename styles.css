@@ -1,0 +1,81 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.app {
+  height: 100%;
+  width: 100%;
+  background-color: plum;
+  display: flex;
+  flex-direction: column;
+}
+
+/* #header {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  bottom: 100px;
+  right: 100px;
+  background-color: green; 
+  z-index: 2;
+}
+#wrap {
+  position: absolute;
+  left: 50px;
+  background-color: gray;
+  z-index: 1;
+}
+#footer {
+  background-color: blue;
+  z-index: 0;
+} */
+
+/* #header {
+  position: relative;
+  left: 100px;
+  top: 100px;
+  bottom: 100px;
+  right: 100px;
+  background-color: green;
+}
+#wrap {
+  position: relative;
+  background-color: gray;
+  right: 100px;
+}
+#footer {
+  background-color: blue;
+} */
+
+#header {
+  height: 100px;
+  background-color: green;
+}
+#wrap {
+  background-color: gray;
+  height: 100%;
+}
+#wrap form{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 12px 50px 12px 50px;
+}
+
+#wrap form input,button{
+  margin: 10px;
+  height: 24px;
+}
+
+
+#footer {
+  height: 100px;
+  background-color: blue;
+}
+
+.container {
+  box-sizing: border-box;
+  border: 1px solid black;
+  padding: 12px 50px 12px 50px;
+}
