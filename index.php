@@ -10,23 +10,60 @@
     <title>Document</title>
 </head>
 <body>
+<?php
+//include
+//require
+//include_once
+require_once "classes/FactoryInput.php";
+
+
+$arrayInputs = [
+    ['type' => 'text', 'name' => 'name', 'placeholder' => 'input name'],
+    ['type' => 'text', 'name' => 'phone', 'placeholder' => 'input phone'],
+    ['type' => 'text', 'name' => 'addr', 'placeholder' => 'input addr'],
+    ['type' => 'radio', 'name' => 'radio', 'placeholder' => 'input radio'],
+];
+$inputs = (new FactoryInput($arrayInputs))->inputFields;
+var_dump($inputs);
+?>
 <div class="app">
     <div id="header" class="container">header</div>
     <div id="wrap" class="container">
-        <form method="Get" action="http://training"> 
-            <input type="text" name="name" placeholder="input name"/>
-            <input type="text" name="phone" placeholder="input phone"/>
-            <input type="text" name="addr"placeholder="input addr"/>
+        <form method="Get" action="http://training">
+<!--            <input type="text" name="name" placeholder="input name"/>-->
+<!--            <input type="text" name="phone" placeholder="input phone"/>-->
+<!--            <input type="text" name="addr" placeholder="input addr"/>-->
+            <?php
+                foreach ($inputs as $input) {
+                    $input->getInput();
+                }
+            ?>
             <button type="submit">Submit</button>
         </form>
         <pre>
         <?php
-            print_r($_GET);
+        print_r($_GET);
         ?>
         </pre>
     </div>
     <div id="footer" class="container">footer</div>
 </div>
+
+<?php
+//$func = function (array $array): array {
+//    foreach ($array as $key => $value) {
+//        $array[$key] = $value * 2;
+//    }
+//
+//    return $array;
+//};
+//
+//$array = [1, 2, 3, 45654, 222];
+//echo '<pre>';
+//print_r($func($array));
+//print_r($array);
+//echo '</pre>';
+?>
 <!-- <h1>asd</h1>
 <h2>asd</h2>
 <h3>asd</h3>
