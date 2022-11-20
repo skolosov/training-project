@@ -1,5 +1,5 @@
 <?php
-require_once "classes/InputClass.php";
+namespace App\classes;
 
 class FactoryInput
 {

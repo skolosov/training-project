@@ -1,5 +1,5 @@
 <?php
-
+namespace App\traits;
 
 trait InputTrait {
     public function getInput()

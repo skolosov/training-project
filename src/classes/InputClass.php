@@ -1,6 +1,8 @@
 <?php
-require_once "interfaces/InputInterface.php";
-require_once "traits/InputTrait.php";
+namespace App\classes;
+
+use App\interfaces\InputInterface;
+use App\traits\InputTrait;
 
 class InputClass implements InputInterface
 {
