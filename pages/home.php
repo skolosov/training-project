@@ -29,7 +29,7 @@
         height: 80%;
     }
     .footer {
-        background-color: violet;
+        background-color: red;
         width: 100%;
         height: 10%;
     }
@@ -42,16 +42,14 @@
     }
     #col1 {
         background-color: yellow;
-        width: 200px;
+        width: 30%;
     }
     #col2 {
-        background-color: red;
+        background-color: violet;
         flex-grow: 1;
     }
-    #col3 {
-        background-color: blue;
-        width: 100px;
-    }
+    
+    
     
 </style>
  
@@ -61,9 +59,34 @@
     </div>
     <div class="content">
          <div class="columns">
-            <div id="col1">col1</div>
-            <div id="col2">col2</div>
-            <div id="col3">col3</div>
+            <div id="col1">
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>    
+                </ul>
+            </div>
+            <div id="col2">
+                <table width="100%" border="1" cellpadding="3">
+                    <tr align="center" >
+                        <th colspan="2">Первый</th>
+                        <th colspan="2">Второй</th>
+                    </tr>
+                    <tr align="right" >
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr align="right" >
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                    </tr>
+                </table>
+            </div>
          </div>
     </div>
     <div class="footer">
