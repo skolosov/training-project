@@ -191,6 +191,8 @@
 
 </body>
 </html>
+<?php
+use App\classes\Database;
 
-
-
+$db = new Database();
+$db->query('select * from edu_forms');
