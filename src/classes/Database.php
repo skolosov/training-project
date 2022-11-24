@@ -10,7 +10,7 @@ use PDOException;
 class Database
 {
     private string $host = 'localhost';
-    private string $db = 'postgres';
+    private string $db = 'training';
     private string $user = 'postgres';
     private string $password = ''; // change to your password
     public ?PDO $pdo;

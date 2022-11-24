@@ -14,14 +14,24 @@
 ><?php
 
     use App\classes\Database;
+    use App\classes\TableGenerate;
 
     $db = new Database();
-    $db_rez = $db->query('select * from vals');
-    var_dump($db_rez);
 
     ?>
 </pre>
-
+<style>
+    .table {
+        width: 100%;
+        border: 1px solid black;
+    }
+    .table-spread tr {
+        background-color: white;
+    }
+    .table-spread tr:nth-child(even){
+        background-color: grey;
+    }
+</style>
 <div id="app">
     <div class="header">
 
@@ -66,38 +76,35 @@
             <!--                </ul>-->
             <!--            </div>-->
             <div id="col2">
-                <table width="100%" border="1" cellpadding="10">
-                    <thead>
-                    <tr align="center">
-                        <th>Name</th>
-                        <th>Val1</th>
-                        <th>Val2</th>
-                        <th>Val3</th>
-                        <th>Val4</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                    foreach ($db_rez as $db_rec) {
-                        echo "<tr>";
-                        foreach ($db_rec as $key => $value) {
-                            if ($key !== 'id') {
-                                echo "<td>$key:$value</td>";
-                            }
-                        }
-                        //echo "<td>$db_rec->name</td>";
-                        //echo "<td>$db_rec->val1</td>";
-                        //echo "<td>$db_rec->val2</td>";
-                        //echo "<td>$db_rec->val3</td>";
-                        //echo "<td>$db_rec->val4</td>";
-                        echo "</tr>";
-                    }
-
-                    ?>
-                    </tbody>
-
-
-                </table>
+                <?php
+                    $header = [
+                            'ID',
+                            'name',
+                            'val1',
+                            'val2',
+                            'val3',
+                            'val4',
+                    ];
+                    $db_rez = $db->query('select * from vals');
+                    $classes = ['table', 'table-spread'];
+                    $tableGenerator = new TableGenerate($header, $db_rez, $classes);
+                    $tableGenerator->getTable();
+                ?>
+<!--                <table width="100%" border="1" cellpadding="10">-->
+<!--                    <thead>-->
+<!--                    <tr align="center">-->
+<!--                        <th>Name</th>-->
+<!--                        <th>Val1</th>-->
+<!--                        <th>Val2</th>-->
+<!--                        <th>Val3</th>-->
+<!--                        <th>Val4</th>-->
+<!--                    </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody>-->
+<!--                    </tbody>-->
+<!---->
+<!---->
+<!--                </table>-->
             </div>
         </div>
     </div>
