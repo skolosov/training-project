@@ -35,7 +35,7 @@ class Database
         }
     }
 
-    public function query(string $query, array $params = [])
+    public function query(string $query, array $params = [], bool $fetchflag = false)
     {
         $stmt = $this->pdo->prepare($query);
         if (count($params)) {
@@ -43,7 +43,8 @@ class Database
         } else {
             $stmt->execute();
         }
-        $data = $stmt->fetchAll(PDO::FETCH_OBJ);
-        var_dump($data);
+        if (!$fetchflag) {
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
+        }
     }
 }

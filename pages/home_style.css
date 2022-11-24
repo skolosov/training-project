@@ -1,0 +1,80 @@
+html, body{
+    width: 100%;
+    height: 100%;
+}
+#app {
+    background-color: grey;
+    width: 100%;
+    height: 100%;
+}
+.header {
+    background-color: pink;
+    width: 100%;
+    height: 10%;
+}
+.content {
+    background-color: green;
+    width: 100%;
+    height: 80%;
+}
+.footer {
+    background-color: red;
+    width: 100%;
+    height: 10%;
+}
+.columns {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+#col1 {
+    background-color:  #c2c2c2;
+    width: 100%;
+    height: 20%;
+}
+#col1 ul{
+    list-style: none;
+}
+#col1 > ul > li{
+    float: left;
+    width: 180px;
+    /*position: relative;*/
+    display: block;
+    background: violet;
+    border: 1px solid black;
+    color: black;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+}
+#col1 li .second{
+    display: none;
+    position: relative;
+    top: 100%;
+    /*left: 100%;
+    top: 0;*/
+}
+#col1 li:hover .second{
+    display: block;
+    background: violet;
+}
+#col1 li li{
+    width: 180px;
+}
+#col1 li li .third{
+    display: none;
+    position: relative;
+    left: 100%;
+    top: 0;
+}
+#col1 li li:hover .third{
+    display: block;
+    background: violet;
+}
+
+#col2 {
+    background-color: violet;
+    flex-grow: 1;
+}
