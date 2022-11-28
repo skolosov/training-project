@@ -18,7 +18,7 @@
 
 
     $db = new Database();
-
+    $db->load_json();
     ?>
 </pre>
 
