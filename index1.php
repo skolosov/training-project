@@ -26,6 +26,9 @@ $arrayInputs = [
 $inputs = (new FactoryInput($arrayInputs))->inputFields;
 var_dump($inputs);
 ?>
+
+
+
 <div class="app">
     <div id="header" class="container">header</div>
     <div id="wrap" class="container">

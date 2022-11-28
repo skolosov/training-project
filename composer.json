@@ -10,5 +10,8 @@
             "name": "SKolosov",
             "email": "skolosov.work@gmail.com"
         }
-    ]
+    ],
+  "require": {
+    "ext-pgsql": "*"
+  }
 }
