@@ -1,28 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../normalize.css" rel="stylesheet">
-    <link href="pages/home_style.css" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
+<?php
 
-    <div id="app">
-        <div class="header">
-            <div id="log"
-                <p><img class="img"
-                        src="src/images/Rectangle 48.png">
-                </p>
-            </div>
-        </div>
-        <div class="content">
+require_once 'pages/layout/header_html.php';
 
-        </div>
+require_once 'pages/header/header.php';
 
-    </div>
+require_once 'pages/contents/contents_home.php';
 
-</body>
-</html>
+require_once 'pages/layout/footer_html.php';
+?>

@@ -1,0 +1,24 @@
+.header {
+    background-color: rgba(31, 42, 99, 1);
+    box-shadow: 0 4px 16px rgba(1, 28, 64, 0.2);
+    height: 93px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 150px;
+}
+
+.header .logo {
+    width: 150px;
+}
+
+.header .header_links a {
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    margin-left: 74px;
+}
+
+
+
