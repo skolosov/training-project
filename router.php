@@ -12,8 +12,7 @@ function router(string $url, Closure $callback)
 
     if ($url === '/') {
         $route = '/';
-    }
-    else {
+    } else {
         $route = preg_replace('/\/{0,}$/', '', $route);
     }
     $router[$route] = $callback;
@@ -29,4 +28,9 @@ function dispatch($url)
     return isset($router[$route])
         ? $router[$route]()
         : require_once "pages/error.php";
+}
+
+function get_route(string $url = ""): string
+{
+    return "{$_SERVER['HTTP_X_FORWARDED_PROTO']}://{$_SERVER['HTTP_HOST']}$url";
 }
