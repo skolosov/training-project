@@ -1,0 +1,80 @@
+.content {
+    height: 100%;
+    background: linear-gradient(180deg, #1F2A63 0%, #17002F 100%);
+    display: flex;
+    flex-direction: row;
+}
+
+.l_column {
+    /*border: red solid 5px;*/
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 150px;
+    justify-content: center;
+}
+
+p{
+    margin: 0;
+}
+
+.r_column {
+    /*border: blue solid 5px;*/
+    height: 100%;
+    width: 60%;
+}
+
+.bolt_text {
+    color: white;
+    font-size: 50px;
+}
+
+.text {
+    color: white;
+    font-size: 30px;
+}
+
+.button button{
+    background: rgba(255, 193, 7, 1);
+    box-shadow: inset 0 -9px 0 rgba(0, 0, 0, 0.18);
+    border-radius: 11px;
+    height: 66px;
+    width: 231px;
+    font-size: 23px;
+}
+
+.l_column > div  {
+    margin-bottom: 64px;
+}
+
+.images {
+    margin-top: 67px;
+    height: 727px;
+}
+
+
+.yoda {
+    position: relative;
+    height: 647.1970825195312px;
+    width: 647.3088989257812px;
+    z-index: 2;
+}
+
+.small_cloud {
+    position: absolute;
+    height: 107.21990966796875px;
+    width: 223.88375854492188px;
+    z-index: 0;
+    top: 505px;
+    right: 377px;
+}
+
+.big_cloud {
+    position: absolute;
+    height: 164.5919647216797px;
+    width: 343.35113525390625px;
+    z-index: 0;
+    /*right: 77px;*/
+    right: 0;
+}

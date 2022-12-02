@@ -48,54 +48,53 @@ class Database
         }
     }
 
-    public function db_mount_insert($table,$array) {
-
-        $str = "insert into $table (";
-        while(list($name,$value) = each($array)) {
-            $str .= "$name,";
-        }
-        $str[strlen($str)-1] = ')';
-        $str .= " values (";
-        reset($array);
-        while(list($name,$value) = each($array)) {
-            if(is_string($value))
-                $str .= "'$value',";
-            else
-                $str .= "$value,";
-        }
-        $str[strlen($str)-1] = ')';
-        $str .= ";"    ;
-
-        return $str;
-    }
-
-
-    function db_build_insert($table, $array)
+    public function load_json()
     {
-        if (count($array) === 0) {
-            return false;
-        }
-        $columns = array_keys($array);
-        $values = array_values($array);
-        unset($array);
+        $json = file_get_contents('src/data/starships.json');
+        $data = json_decode($json);
+        $columns = [
+            "name" => 'text',
+            "model" => 'text',
+            "starship_class" => 'text',
+            "manufacturer" => 'text',
+            "length" => 'float',
+            "cargo_capacity" => 'bigint',
+            "max_atmosphering_speed" => 'text',
+        ];
+        $exist_table = $this->query("drop table if exists starships;", [], true);
 
-        for ($i = 0, $c = count($values); $i$c{{;
+        //$exist_table = $this->query("select * from information_schema.tables where table_name like ?;", ["starships"]);
+
+        //var_dump(count($exist_table));
+        //if (!count($exist_table)) {
+        $query_columns = [];
+        foreach ($columns as $column => $type) {
+            //array_push($query_columns,"$column $type");
+            $query_columns[] = "$column $type";
         }
-        }
-            ++$i) {
-            if (is_bool($values[$i])) {
-                $values[$i] = $values[$i] ? 'true' : 'false';
-            } elseif (is_null($values[$i])) {
-                $values[$i] = 'NULL';
-            } elseif (is_string($values[$i])) {
-                $values[$i] = "'" . addslashes($values[$i]) . "'";
-            } elseif (!is_numeric($values[$i])) {
-                return false;
+        $implode_columns = implode(", ", $query_columns);
+        $t_cr_t = "create table starships ($implode_columns)";
+
+        $this->query($t_cr_t, [], true);
+        //}
+
+        $implode_columns = implode(", ", array_keys($columns));
+        $format_string_value = str_repeat("? ", count($columns));
+        $columns_params = explode(" ", $format_string_value);
+        unset($columns_params[count($columns_params) - 1]);
+        $columns_params = implode(", ", $columns_params);
+
+        $t_cr_t = "insert into starships ($implode_columns) values ($columns_params)";
+
+        foreach ($data as $row) {
+            $values_string = [];
+            foreach ($columns as $key => $value) {
+                $values_string[] = preg_replace('/(\d+),(\d+)/', '${1}.${2}', $row->$key);
             }
+            $this->query($t_cr_t, $values_string, true);
         }
-
-        return "INSERT INTO $table ($column_quote" . implode(', ', $columns) .
-        ") VALUES (" . implode(', ', $values) . ")";
     }
+
+
 
 }
