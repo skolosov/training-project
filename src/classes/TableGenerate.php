@@ -26,47 +26,63 @@ class TableGenerate implements TableGenerateInterface
 
         echo "<table class='$class_table'>";
         echo "<thead class='$class_table_thead'>";
-        $this->getRow($this->header, true);
+        $this->getRowHeader($this->header, true);
         echo "</thead>";
         echo "<tbody>";
+
         foreach ($this->data as $row) {
-            $this->getRow($row);
+            $this->getRowData($this->header, (array)$row);
         }
         echo "</tbody>";
         echo "</table>";
     }
 
-    function getRow($data, bool $is_header = false)
+    function getRowHeader(array $header, bool $is_header = false)
     {
         echo "<tr>";
-        foreach ($data as $cell) {
+
+        foreach ($header as $cell) {
             $this->getCell($cell, $is_header);
         }
+        $this->getCell("Action", $is_header);
+        echo "</tr>";
+    }
+
+    function getRowData(array $header, array $data, bool $is_header = false)
+    {
+        echo "<tr>";
+        foreach ($header as $one_header) {
+            $this->getCell($data[mb_strtolower($one_header)], $is_header);
+        }
+        //            $classes = ['table' => ['table', 'thead-spread'], 'thead' => ['thead-light']];
+//            $tableGenerator = new ModalGenerate($header, $data, $classes);
+//            $tableGenerator->getModal();
+
         echo '<td>
-<!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Launch demo modal
-        </button>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Open
+                </button>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
 
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-</td>';
+            </td>';
         echo "</tr>";
     }
 

@@ -33,13 +33,13 @@ $db = new Database();
                     'Length',
                     'Starship_class',
                     'Max_atmosphering_speed',
-                    'Action',
                 ];
-                $db_rez = $db->query('select Name,length,Starship_class,Max_atmosphering_speed from starships');
+                $db_rez = $db->query('select id,Name,model,length,Starship_class,Max_atmosphering_speed from starships');
                 $classes = ['table' => ['table', 'thead-spread'], 'thead' => ['thead-light']];
                 $tableGenerator = new TableGenerate($header, $db_rez, $classes);
                 $tableGenerator->getTable();
                 ?>
+
             </div>
 
         </div>
