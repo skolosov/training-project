@@ -8,9 +8,9 @@ interface ModelGenerateInterface
 {
     public function getModal();
 
-    function getModalButton(array $data);
+    function getModalButtom(string $idModel);
 
-    function getModalHeader(string $NameModel);
+    function getModalHeader(string $name);
 
     function getModalBody(array $data);
 }
