@@ -29,7 +29,7 @@ class ModalGenerate implements ModelGenerateInterface
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <div class="modal-content">
         EOT;
-        $this->getModalHeader($this->data["name"]);
+//        $this->getModalHeader($this->data["name"]);
         echo '<div class="modal-body">';
         $this->getModalBody($this->data);
         echo <<<EOT
@@ -62,8 +62,8 @@ class ModalGenerate implements ModelGenerateInterface
             <div class="row">
                 <div class="col">
         EOT;
-        echo "{$data["name"]}";
-        echo '<img class="starship" src="src/images/"' . $data["name"] . '".png">';
+//        echo "{$data["name"]}";
+        echo '<img class="starship" src="src/images/' . $data["name"] . '.png" alt="">';
         echo '</div>';
         echo '<div class="col">';
 
@@ -83,13 +83,13 @@ class ModalGenerate implements ModelGenerateInterface
             echo mb_strtolower($value)=="name" ? '</b>' : ' ';
             echo '</div>';
         }
-        for ($i = 0; $i < count($header_model_row); ++$i) {
-            echo '<div class="row">';
-            echo $i==0 ? '<b>' : '';
-            echo "$header_model_row[$i]: " . $data[mb_strtolower($header_model_row[$i])];
-            echo $i==0 ? '</b>' : '';
-            echo '</div>';
-        }
+//        for ($i = 0; $i < count($header_model_row); ++$i) {
+//            echo '<div class="row">';
+//            echo $i==0 ? '<b>' : '';
+//            echo "$header_model_row[$i]: " . $data[mb_strtolower($header_model_row[$i])];
+//            echo $i==0 ? '</b>' : '';
+//            echo '</div>';
+//        }
 
         echo <<<EOT
                 </div>
