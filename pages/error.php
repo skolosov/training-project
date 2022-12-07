@@ -1,3 +1,5 @@
-<h1>404</h1>
 <?php
 
+require_once 'pages/contents/content_error.php';
+
+?>

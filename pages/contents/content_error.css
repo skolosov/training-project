@@ -1,0 +1,10 @@
+.text_404 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 700px;
+    line-height: 818px;
+    align-items: center;
+    letter-spacing: 4px;
+
+    color: rgba(255, 255, 255, 0.5);
+}
