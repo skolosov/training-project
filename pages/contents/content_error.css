@@ -1,3 +1,6 @@
+.content_error{
+    background-color: rgba(23, 0, 47, 1);
+}
 .text_404 {
     font-style: normal;
     font-weight: 700;
@@ -5,6 +8,20 @@
     line-height: 818px;
     align-items: center;
     letter-spacing: 4px;
-
+    z-index: 0;
     color: rgba(255, 255, 255, 0.5);
+}
+
+.img_404 {
+    z-index: 2;
+    position: absolute;
+    height: 66px;
+    width: 231px;
+    border-radius: 11px;
+;
+}
+
+.button_404 {
+    align-items: center;
+    background-color: rgba(115, 214, 119, 1);
 }
