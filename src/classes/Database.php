@@ -10,7 +10,7 @@ use PDOException;
 class Database
 {
     private string $host = 'localhost';
-    private string $db = 'postgres';
+    private string $db = 'training';
     private string $user = 'postgres';
     private string $password = ''; // change to your password
     public ?PDO $pdo;
@@ -73,7 +73,11 @@ class Database
             $query_columns[] = "$column $type";
         }
         $implode_columns = implode(", ", $query_columns);
-        $t_cr_t = "create table starships ($implode_columns)";
+        $t_cr_t = "create table starships (
+                        id serial
+		                constraint starships_pk
+                        primary key,
+			        $implode_columns)";
 
         $this->query($t_cr_t, [], true);
         //}

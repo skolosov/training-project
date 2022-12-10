@@ -49,32 +49,32 @@ p{
 }
 
 .images {
-    margin-top: 67px;
+    /*margin-top: 67px;*/
     height: 727px;
 }
 
 
 .yoda {
-    position: relative;
+    position: absolute;
     height: 647.1970825195312px;
     width: 647.3088989257812px;
     z-index: 2;
 }
 
 .small_cloud {
-    position: absolute;
+    position: relative;
     height: 107.21990966796875px;
     width: 223.88375854492188px;
     z-index: 0;
-    top: 505px;
-    right: 377px;
+    top: 340px;
+    right: 289px;
 }
 
 .big_cloud {
-    position: absolute;
+    position: relative;
     height: 164.5919647216797px;
     width: 343.35113525390625px;
     z-index: 0;
     /*right: 77px;*/
-    right: 0;
+    left: 298px;
 }
